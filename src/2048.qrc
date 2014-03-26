@@ -6,5 +6,6 @@
         <file>qml/Tile.qml</file>
         <file>qml/logic.js</file>
         <file>qml/main.qml</file>
+        <file>qml/ui.js</file>
     </qresource>
 </RCC>

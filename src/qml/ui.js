@@ -24,33 +24,22 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import "ui.js" as Ui
+function calculatePointSize(parent, text) {
+    var minPointSize = 14;
 
-Item {
-    id: item
+    var i;
+    for (i = minPointSize; i <= 200; i++) {
+        var code = 'import QtQuick 2.0; Text { font.bold: true; font.pointSize: ' + i + '; text: "' + text + '"; visible: false }';
+        var textElement = Qt.createQmlObject(code, parent, "calculatePointSize");
 
-    property int spacing
-    property alias value: label.text
+        var width = textElement.width;
+        var height = textElement.height;
 
-    Palette {
-        id: palette
+        textElement.destroy();
+
+        if (textElement.width > parent.width * 0.9 || textElement.height > parent.height * 0.9)
+            return i - 1;
     }
 
-    Rectangle {
-        id: rect
-        anchors.fill: parent
-        anchors.margins: spacing
-        color: item.value == "" ? palette.cell.background : palette["cell" + item.value].background
-        radius: 6
-
-        Text {
-            id: label
-            anchors.centerIn: parent
-            color: item.value == "" ? palette.cell.text : palette["cell" + item.value].text
-            renderType: Text.NativeRendering
-            font.bold: true
-            font.pointSize: Ui.calculatePointSize(rect, text)
-        }
-    }
+    return minPointSize;
 }
