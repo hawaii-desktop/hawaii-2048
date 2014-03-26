@@ -32,23 +32,31 @@ import QtQuick.LocalStorage 2.0
 import "logic.js" as Logic
 
 Window {
+    id: window
     title: "Hawaii 2048"
-    width: 640
-    height: 480
+    minimumWidth: 640
+    minimumHeight: 480
     color: palette.window.background
     visible: true
+
+    QtObject {
+        id: __priv
+
+        property real size: 100
+        property real scale: Math.min(window.width * 0.56 / size, window.height * 0.56 / size);
+        onScaleChanged: console.debug("Scale:", scale)
+    }
 
     Palette {
         id: palette
     }
 
     ColumnLayout {
+        id: mainLayout
         anchors.fill: parent
 
         Playground {
             id: playground
-            width: 400
-            height: 400
             focus: enabled
 
             Keys.onUpPressed: Logic.moveGrid(1)
@@ -57,6 +65,8 @@ Window {
             Keys.onDownPressed: Logic.moveGrid(4)
 
             Layout.alignment: Qt.AlignCenter
+            Layout.preferredWidth: __priv.size * __priv.scale
+            Layout.preferredHeight: __priv.size * __priv.scale
         }
 
         ProgressBar {
@@ -65,6 +75,7 @@ Window {
             maximumValue: 1
 
             Layout.alignment: Qt.AlignCenter
+            Layout.preferredWidth: playground.Layout.preferredWidth
         }
 
         RowLayout {
@@ -89,6 +100,11 @@ Window {
             id: shareLabel
 
             Layout.alignment: Qt.AlignCenter
+        }
+
+        Item {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
         }
     }
 
