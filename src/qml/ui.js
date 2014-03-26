@@ -37,7 +37,7 @@ function calculatePointSize(parent, text) {
 
         textElement.destroy();
 
-        if (textElement.width > parent.width * 0.9 || textElement.height > parent.height * 0.9)
+        if (width > parent.width * 0.9 || height > parent.height * 0.9)
             return i - 1;
     }
 
