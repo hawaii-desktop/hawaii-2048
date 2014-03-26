@@ -49,7 +49,7 @@ Rectangle {
         Repeater {
             model: parent.rows * parent.columns
 
-            Cell {
+            Tile {
                 spacing: 8
                 width: grid.width / grid.rows
                 height: grid.height / grid.columns

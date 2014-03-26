@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/Cell.qml</file>
         <file>qml/Palette.qml</file>
         <file>qml/Playground.qml</file>
+        <file>qml/Tile.qml</file>
         <file>qml/logic.js</file>
         <file>qml/main.qml</file>
     </qresource>
