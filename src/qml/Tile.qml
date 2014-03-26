@@ -48,8 +48,27 @@ Item {
             anchors.centerIn: parent
             color: item.value == "" ? palette.cell.text : palette["cell" + item.value].text
             renderType: Text.NativeRendering
-            font.pointSize: 24
-            fontSizeMode: Text.Fit
+            font.pointSize: calculatePointSize(text)
         }
+    }
+
+    function calculatePointSize(text) {
+        var minPointSize = 14;
+
+        var i;
+        for (i = minPointSize; i <= 200; i++) {
+            var code = 'import QtQuick 2.0; Text { font.pointSize: ' + i + '; text: "' + text + '"; visible: false }';
+            var textElement = Qt.createQmlObject(code, item, "calculatePointSize");
+
+            var width = textElement.width;
+            var height = textElement.height;
+
+            textElement.destroy();
+
+            if (textElement.width > rect.width * 0.9 || textElement.height > rect.height * 0.9)
+                return i - 1;
+        }
+
+        return minPointSize;
     }
 }
