@@ -48,6 +48,7 @@ Item {
             anchors.centerIn: parent
             color: item.value == "" ? palette.cell.text : palette["cell" + item.value].text
             renderType: Text.NativeRendering
+            font.bold: true
             font.pointSize: calculatePointSize(text)
         }
     }
@@ -57,7 +58,7 @@ Item {
 
         var i;
         for (i = minPointSize; i <= 200; i++) {
-            var code = 'import QtQuick 2.0; Text { font.pointSize: ' + i + '; text: "' + text + '"; visible: false }';
+            var code = 'import QtQuick 2.0; Text { font.bold: true; font.pointSize: ' + i + '; text: "' + text + '"; visible: false }';
             var textElement = Qt.createQmlObject(code, item, "calculatePointSize");
 
             var width = textElement.width;
