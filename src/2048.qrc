@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>qml/Palette.qml</file>
         <file>qml/Playground.qml</file>
+        <file>qml/ProgressBar2048Style.qml</file>
         <file>qml/Tile.qml</file>
         <file>qml/logic.js</file>
         <file>qml/main.qml</file>

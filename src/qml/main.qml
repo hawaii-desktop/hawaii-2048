@@ -73,6 +73,7 @@ Window {
             id: progressBar
             minimumValue: 0
             maximumValue: 1
+            style: ProgressBar2048Style {}
 
             Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: playground.Layout.preferredWidth
