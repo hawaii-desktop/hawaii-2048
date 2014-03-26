@@ -1,0 +1,1 @@
+install(DIRECTORY coffee/ DESTINATION ${CMAKE_INSTALL_STYLESDIR}/coffee)
