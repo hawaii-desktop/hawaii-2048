@@ -37,6 +37,11 @@ QtObject {
         property color text: "#776e65"
     }
 
+    property var gameOver: QtObject {
+        property color background: Qt.rgba(238, 228, 218, 0.73)
+        property color text: "#776e65"
+    }
+
     property var cell: QtObject {
         property color background: Qt.rgba(238, 228, 218, 0.35)
         property color text: "#776e65"

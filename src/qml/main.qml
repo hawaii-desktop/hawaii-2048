@@ -43,8 +43,8 @@ Window {
     QtObject {
         id: __priv
 
-        property real size: 100
-        property real scale: Math.min(window.width * 0.56 / size, window.height * 0.56 / size);
+        property real size: 160
+        property real scale: Math.min(window.width * 0.6 / size, window.height * 0.6 / size);
         onScaleChanged: console.debug("Scale:", scale)
     }
 

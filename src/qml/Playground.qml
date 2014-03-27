@@ -25,6 +25,8 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Controls 1.0
+import "ui.js" as Ui
 
 Rectangle {
     property alias gridView: grid
@@ -54,6 +56,32 @@ Rectangle {
                 width: grid.width / grid.rows
                 height: grid.height / grid.columns
             }
+        }
+    }
+
+    Rectangle {
+        id: gameOver
+        anchors.fill: root
+        color: palette.gameOver.background
+        z: 1
+        opacity: grid.enabled ? 0.0 : 0.73
+
+        Behavior on opacity {
+            NumberAnimation { easing.type: Easing.InOutQuad; duration: 800 }
+        }
+    }
+
+    Label {
+        anchors.centerIn: gameOver
+        text: qsTr("Game Over!")
+        color: palette.gameOver.text
+        font.pointSize: Ui.calculatePointSize(parent, text)
+        font.bold: true
+        z: 2
+        opacity: grid.enabled ? 0.0 : 1.0
+
+        Behavior on opacity {
+            NumberAnimation { easing.type: Easing.InOutQuad; duration: 800 }
         }
     }
 }
