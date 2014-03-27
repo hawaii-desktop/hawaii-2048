@@ -25,6 +25,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Controls 1.0
 import "ui.js" as Ui
 
 Item {
@@ -44,11 +45,10 @@ Item {
         color: item.value == "" ? palette.cell.background : palette["cell" + item.value].background
         radius: 6
 
-        Text {
+        Label {
             id: label
             anchors.centerIn: parent
             color: item.value == "" ? palette.cell.text : palette["cell" + item.value].text
-            renderType: Text.NativeRendering
             font.bold: true
             font.pointSize: Ui.calculatePointSize(rect, text)
         }
