@@ -30,6 +30,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import QtQuick.LocalStorage 2.0
 import "logic.js" as Logic
+import "ui.js" as Ui
 
 Window {
     id: window
@@ -54,6 +55,88 @@ Window {
     ColumnLayout {
         id: mainLayout
         anchors.fill: parent
+
+        RowLayout {
+            Button {
+                text: qsTr("New Game")
+                style: Button2048Style {}
+            }
+
+            Item {
+                Layout.fillWidth: true
+            }
+
+            Rectangle {
+                id: scoreRect
+                radius: 6
+                color: palette.view.background
+                width: 100
+                height: 80
+
+                ColumnLayout {
+                    anchors {
+                        fill: parent
+                        margins: 4
+                    }
+
+                    Label {
+                        text: qsTr("Score")
+                        color: Qt.lighter(palette.view.text, 1.9)
+                        font.pointSize: 12
+                        font.bold: true
+                        font.capitalization: Font.AllUppercase
+
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+
+                    Label {
+                        id: scoreLabel
+                        color: Qt.lighter(palette.view.background, 1.5)
+                        font.pointSize: 14
+                        font.bold: true
+
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                }
+            }
+
+            Rectangle {
+                id: bestRect
+                radius: 6
+                color: palette.view.background
+                width: 120
+                height: 80
+
+                ColumnLayout {
+                    anchors {
+                        fill: parent
+                        margins: 4
+                    }
+
+                    Label {
+                        text: qsTr("Best")
+                        color: Qt.lighter(palette.view.text, 1.9)
+                        font.pointSize: 12
+                        font.bold: true
+                        font.capitalization: Font.AllUppercase
+
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+
+                    Label {
+                        id: bestLabel
+                        color: Qt.lighter(palette.view.background, 1.5)
+                        font.pointSize: 14
+                        font.bold: true
+
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                }
+            }
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
 
         Playground {
             id: playground
@@ -83,16 +166,6 @@ Window {
             Label {
                 id: levelLabel
             }
-
-            Label {
-                id: scoreLabel
-            }
-
-            Layout.alignment: Qt.AlignCenter
-        }
-
-        Label {
-            id: bestLabel
 
             Layout.alignment: Qt.AlignCenter
         }

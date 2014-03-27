@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>qml/Button2048Style.qml</file>
         <file>qml/Palette.qml</file>
         <file>qml/Playground.qml</file>
         <file>qml/ProgressBar2048Style.qml</file>

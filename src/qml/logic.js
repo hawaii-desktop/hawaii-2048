@@ -167,7 +167,7 @@ function getScore() {
 function updateScore() {
     shareElem.text = '<a href="https://twitter.com/home?status=Got%20a%20score%20of%20' + (score + sum) + '%20on%20%232048%20saming.fr/p/2048">Share</a>';
 
-    scoreElem.text = (score + sum) + "pts";
+    scoreElem.text = (score + sum);
 
     updateBest();
 
@@ -251,7 +251,7 @@ function updateBest() {
     if (best < (score + sum))
         setBest(score + sum);
 
-    bestElem.text = best + "pts";
+    bestElem.text = best;
 }
 
 // GAME OVER FUNCTIONS
