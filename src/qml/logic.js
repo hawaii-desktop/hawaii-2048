@@ -308,7 +308,7 @@ function initDb() {
     db = LocalStorage.openDatabaseSync("Hawaii2048", "1.0", "2048 for QML", 1000000);
     db.transaction(
         function(tx) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS bestscore(score TEXT)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS bestscore(score INTEGER)');
             var rs = tx.executeSql('SELECT * FROM bestscore');
             if (rs.rows.length == 0)
                 tx.executeSql('INSERT INTO bestscore VALUES(?)', [ 0 ]);
@@ -323,10 +323,8 @@ function initScore() {
 }
 
 function initBest() {
-    if (readBest() == null)
-        setBest(0);
-
     getBest();
+    bestElem.text = best;
 }
 
 function initGrid() {

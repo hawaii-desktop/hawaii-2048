@@ -192,6 +192,6 @@ Window {
 
         Logic.initGrid();
         Logic.initDb();
-        Logic.initBest();
+        Logic.initScore();
     }
 }
