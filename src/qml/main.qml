@@ -61,8 +61,10 @@ Window {
 
         RowLayout {
             Button {
+                id: newGame
                 text: qsTr("New Game")
                 style: Button2048Style {}
+                onClicked: Logic.init()
             }
 
             Item {
@@ -193,8 +195,7 @@ Window {
         Logic.bestElem = bestLabel;
         Logic.shareElem = shareLabel
 
-        Logic.initGrid();
         Logic.initDb();
-        Logic.initScore();
+        newGame.clicked();
     }
 }
