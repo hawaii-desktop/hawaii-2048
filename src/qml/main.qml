@@ -54,7 +54,10 @@ Window {
 
     ColumnLayout {
         id: mainLayout
-        anchors.fill: parent
+        anchors {
+            centerIn: parent
+            margins: 10 * __priv.scale
+        }
 
         RowLayout {
             Button {
