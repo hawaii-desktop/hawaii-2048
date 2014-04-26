@@ -27,6 +27,7 @@
 import QtQuick 2.0
 import QtQuick.Window 2.0
 import QtQuick.Controls 1.0
+import QtQuick.Controls.Private 1.0
 import QtQuick.Layouts 1.0
 import QtQuick.LocalStorage 2.0
 import "logic.js" as Logic
@@ -35,16 +36,16 @@ import "ui.js" as Ui
 Window {
     id: window
     title: "Hawaii 2048"
-    minimumWidth: 640
-    minimumHeight: 480
+    minimumWidth: 590
+    minimumHeight: 640
     color: palette.window.background
     visible: true
 
     QtObject {
         id: __priv
 
-        property real size: 160
-        property real scale: Math.min(window.width * 0.6 / size, window.height * 0.6 / size);
+        property real size: Settings.dpiScaleFactor * 300
+        property real scale: Math.min(window.width * 0.8 / size, window.height * 0.8 / size);
         onScaleChanged: console.debug("Scale:", scale)
     }
 
