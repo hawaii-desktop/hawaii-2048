@@ -50,7 +50,7 @@ Item {
             anchors.centerIn: parent
             color: item.value == "" ? palette.cell.text : palette["cell" + item.value].text
             font.bold: true
-            font.pointSize: Ui.calculatePointSize(rect, text)
+            font.pointSize: text != "" ? Ui.calculatePointSize(rect, text) : 10
         }
     }
 }
