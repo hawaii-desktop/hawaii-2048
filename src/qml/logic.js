@@ -337,6 +337,8 @@ function initGrid() {
 }
 
 function init() {
+    gridElem.enabled = true;
+
     initScore();
     initBest();
     initGrid();
