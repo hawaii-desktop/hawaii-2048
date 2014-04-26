@@ -75,7 +75,7 @@ Rectangle {
         anchors.centerIn: gameOver
         text: qsTr("Game Over!")
         color: palette.gameOver.text
-        font.pointSize: Ui.calculatePointSize(parent, text)
+        font.pointSize: 42
         font.bold: true
         z: 2
         opacity: grid.enabled ? 0.0 : 1.0
